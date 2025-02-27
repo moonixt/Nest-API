@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:3000
+
+# Recados
+
+# @name RotaRecados
+ GET {{baseUrl}}/recados
+###
+ GET {{baseUrl}}/recados/6
+###
+Post {{baseUrl}}/recados/
+Content-Type: application/json
+
+{
+    "nome": "Maria",
+    "recado": "Olá, tudo bem?"
+}
+###
+PATCH  {{baseUrl}}/recados/6
+Content-Type: application/json
+
+{
+    "nome": "Julia",
+    "recado": "Olá, tudo bem?"
+}
+###
+
+# @name ExemploDeRotaComMetodo
+GET {{baseUrl}}/hello
+###
+#  @name ExemploDeRotaComMetodo
+GET {{baseUrl}}/teste
+###
+# @name ConceitosmanualController
+GET {{baseUrl}}/conceitos-manual/conceitosmanual
+###
+# @name ConceitosAutomaticoController
+GET {{baseUrl}}/conceitos-automatico/automatico
+###
+
+
+# @name ApagarRecado
+DELETE {{baseUrl}}/recados/6
