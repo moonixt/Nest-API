@@ -1,12 +1,15 @@
 import { Body, Controller, Get, Param, Post, Patch, Delete } from '@nestjs/common';
+import { RecadosService } from './recados.service';
 
 @Controller('recados')
 export class RecadosController {
+  constructor(private readonly Recadoservicos : RecadosService,){}
+
   @Get()
   findALL() {
     return 'Essa rota retorna todos os recados';
   }
-  @Get(':id')
+  @Get('/busca/:id')
   findOne(@Param('id') id:string) {
     console.log(id);
     return `Essa rota retorna o ${id}`;
@@ -29,4 +32,9 @@ export class RecadosController {
     remover(@Param('id') id: string) {
       return `Removendo o recado ${id}`;
     }
+
+  @Get('teste1')
+  testeRender(): string {
+    return this.Recadoservicos.estaFuncional()
+  }
 }
